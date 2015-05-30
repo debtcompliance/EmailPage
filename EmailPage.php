@@ -13,7 +13,7 @@
  */
 if( !defined( 'MEDIAWIKI' ) ) die( "Not an entry point." );
 
-define( 'EMAILPAGE_VERSION', "2.3.3, 2015-03-05" );
+define( 'EMAILPAGE_VERSION', "2.3.4, 2015-05-30" );
 
 $wgEmailPageGroup           = "sysop";               // Users must belong to this group to send emails (empty string means anyone can send)
 $wgEmailPageCss             = false;                 // A minimal CSS page to embed in the email (eg. monobook/main.css without portlets, actions etc)
@@ -59,7 +59,7 @@ function wfEmailPageToolboxLink() {
 	global $wgTitle, $wgUser, $wgEmailPageGroup;
 	if ( is_object( $wgTitle ) && $wgUser->isLoggedIn() && ( empty( $wgEmailPageGroup ) || in_array( $wgEmailPageGroup, $wgUser->getEffectiveGroups() ) ) ) {
 		$url = htmlspecialchars( SpecialPage::getTitleFor( 'EmailPage' )->getLocalURL( array( 'ea-title' => $wgTitle->getPrefixedText() ) ) );
-		echo( "<li><a href=\"$url\">" . wfMsg( 'emailpage' ) . "</a></li>" );
+		echo( "<li><a href=\"$url\">" . wfMessage( 'emailpage' )->text() . "</a></li>" );
 	}
 	return true;
 }
@@ -68,7 +68,7 @@ function wfEmailPageActionLink( $skin, &$actions ) {
 	global $wgTitle, $wgUser, $wgEmailPageGroup;
 	if( is_object( $wgTitle ) && $wgUser->isLoggedIn() && ( empty( $wgEmailPageGroup ) || in_array( $wgEmailPageGroup, $wgUser->getEffectiveGroups() ) ) ) {
 		$url = SpecialPage::getTitleFor( 'EmailPage' )->getLocalURL( array( 'ea-title' => $wgTitle->getPrefixedText() ) );
-		$actions['email'] = array( 'text' => wfMsg( 'email' ), 'class' => false, 'href' => $url );
+		$actions['email'] = array( 'text' => wfMessage( 'email' )->text(), 'class' => false, 'href' => $url );
 	}
 	return true;
 }
@@ -77,7 +77,7 @@ function wfEmailPageActionLinkVector( $skin, &$actions ) {
 	global $wgTitle, $wgUser, $wgEmailPageGroup;
 	if( is_object( $wgTitle ) && $wgUser->isLoggedIn() && ( empty( $wgEmailPageGroup ) || in_array( $wgEmailPageGroup, $wgUser->getEffectiveGroups() ) ) ) {
 		$url = SpecialPage::getTitleFor( 'EmailPage' )->getLocalURL( array( 'ea-title' => $wgTitle->getPrefixedText() ) );
-		$actions['views']['email'] = array( 'text' => wfMsg( 'email' ), 'class' => false, 'href' => $url );
+		$actions['views']['email'] = array( 'text' => wfMessage( 'email' )->text(), 'class' => false, 'href' => $url );
 	}
 	return true;
 }

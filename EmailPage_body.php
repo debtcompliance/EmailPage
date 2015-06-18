@@ -188,7 +188,7 @@ class SpecialEmailPage extends SpecialPage {
 		$title = Title::newFromText( $this->title );
 		$opt   = new ParserOptions;
 		$page  = new Article( $title );
-		$message = $page->getContent();
+		$message = $page->getPage()->getContent()->getNativeData();
 		if( $this->message ) $message = "{$this->message}\n\n$message";
 
 		// Convert the message text to html unless textonly
@@ -215,7 +215,7 @@ class SpecialEmailPage extends SpecialPage {
 			// Get CSS content if any
 			if( $this->css ) {
 				$page = new Article( Title::newFromText( $this->css ) );
-				$css  = "<style type='text/css'>" . $page->getContent() . "</style>";
+				$css  = "<style type='text/css'>" . $page->getPage()->getContent()->getNativeData() . "</style>";
 			} else $css = '';
 
 			// Create a html wrapper for the message
@@ -281,7 +281,7 @@ class SpecialEmailPage extends SpecialPage {
 		$res  = $dbr->select( $tbl, 'tl_from', "tl_namespace = 10 AND tl_title = $type", __METHOD__ );
 		while( $row = $dbr->fetchRow( $res ) ) {
 			$a = new Article( Title::newFromID( $row[0] ) );
-			$c = $a->getContent();
+			$c = $a->getPage()->getContent()->getNativeData();
 
 			// Check if this records email address matches
 			if( preg_match( "|\s*\|\s*\w+\s*=\s*$email\s*(?=[\|\}])|s", $c ) ) {

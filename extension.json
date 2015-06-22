@@ -22,21 +22,10 @@
 		"EmailPageNoLinks":         false,                 "@": "Change links in message to spans if set"
 	},
 	"ExtensionMessagesFiles": {
-		"EmailPageAlias": "EmailPage.i18n.alias.php"
+		"EmailPageAlias": "EmailPage.alias.php"
 	},
 	"MessagesDirs": {
 		"EmailPage": ["i18n"]
-	},
-	"ResourceModules": {
-		"ext.dcscommon": {
-			"scripts": [
-				"modules/dcscommon.js"
-			]
-		}
-	},
-	"ResourceFileModulePaths": {
-		"localBasePath": "",
-		"remoteExtPath": "dcs/DcsCommon"
 	},
 	"SpecialPages": {
 		"EmailPage": "SpecialEmailPage"

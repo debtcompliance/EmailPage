@@ -1,0 +1,27 @@
+{
+	"@metadata": {
+		"authors": [
+			"Jon Harald Søby",
+			"M.M.S."
+		]
+	},
+	"emailpage": "E-posta sida",
+	"ea-desc": "Skicka en renderad HTML-sida till en e-postadress eller en lista över adresser som använder [http://phpmailer.sourceforge.net phpmailer].",
+	"ea-heading": "=== E-posta sidan [[$1]] ===",
+	"ea-fromgroup": "Från grupp:",
+	"ea-pagesend": "Artikeln \"$1\" skickades från $2",
+	"ea-nopage": "Var god ange en sida att skicka, för exempel [[Special:EmailPage/{{MediaWiki:Mainpage-url}}]].",
+	"ea-norecipients": "Inga giltiga e-postadresser hittades!",
+	"ea-listrecipients": "=== Lista över $1 {{PLURAL:$1|mottagare|mottagare}} ===",
+	"ea-error": "'''Fel under sändande av [[$1]]:''' ''$2''",
+	"ea-denied": "Åtkomst nekas",
+	"ea-sent": "Sidan [[$1]] har skickats till '''$2''' {{PLURAL:$2|mottagare|mottagare}} av [[{{ns:User}}:$3|$3]].",
+	"ea-selectrecipients": "Ange mottagare",
+	"ea-compose": "Komponera innehåll",
+	"ea-selectlist": "Ytterligare mottagare som sidtitlar eller e-postadresser\n*''separera element med, ; * \\n\n*''listor kan innehålla mallar och parser-funktioner''",
+	"ea-show": "Visa mottagare",
+	"ea-send": "Skicka!",
+	"ea-subject": "Ange ett ämne för e-brevet",
+	"ea-message": "Fyll innehållet med ett valfritt meddelande (wikitext)",
+	"ea-selectcss": "Ange en CSS-stilmall"
+}

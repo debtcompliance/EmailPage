@@ -1,0 +1,26 @@
+{
+	"@metadata": {
+		"authors": [
+			"Siebrand"
+		]
+	},
+	"emailpage": "Pagina e-mailen",
+	"ea-desc": "Stuur een gerenderde pagina naar een e-mailadres of een lijst van adressen met behulp van [http://phpmailer.sourceforge.net phpmailer].",
+	"ea-heading": "=== Pagina [[$1]] e-mailen ===",
+	"ea-fromgroup": "Van groep:",
+	"ea-pagesend": "Pagina \"$1\" is vanuit $2 verstuurd",
+	"ea-nopage": "Geef een pagina op om te versturen, bijvoorbeeld [[Special:EmailPage/Hoofdpagina]].",
+	"ea-norecipients": "Er is geen geldig e-mailadres opgegeven!",
+	"ea-listrecipients": "=== Lijst met $1 {{PLURAL:$1|ontvanger|ontvangers}} ===",
+	"ea-error": "'''Fout bij het versturen van [[$1]]:''' ''$2''",
+	"ea-denied": "U hebt geen rechten om deze handeling uit te voeren",
+	"ea-sent": "Pagina [[$1]] is verstuurd naar '''$2''' {{PLURAL:$2|ontvanger|ontvangers}} door [[{{ns:User}}:$3|$3]].",
+	"ea-selectrecipients": "Ontvangers selecteren",
+	"ea-compose": "Inhoud samenstellen",
+	"ea-selectlist": "Meer ontvangers als paginanamen of e-mailadressen\n*''u kunt adressen scheiden met  \",\", \";\", \"*\", of \"\\n\"\n*''de lijst mag sjablonen en parserfuncties bevatten''",
+	"ea-show": "Ontvangers weergeven",
+	"ea-send": "Versturen",
+	"ea-subject": "Voer een onderwerp in voor de e-mail",
+	"ea-message": "Laat de pagina-inhoud vooraf gaan door een bericht (in wikitekst)",
+	"ea-selectcss": "Selecteer een CSS"
+}

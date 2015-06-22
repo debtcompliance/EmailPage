@@ -1,0 +1,26 @@
+{
+	"@metadata": {
+		"authors": [
+			"Helix84"
+		]
+	},
+	"emailpage": "Poslať stránku emailom",
+	"ea-desc": "Poslať stránku vo formáte HTML na emailovú adresu alebo zoznam adries pomocou [http://phpmailer.sourceforge.net phpmailer].",
+	"ea-heading": "=== Poslanie stránky [[$1]] emailom ===",
+	"ea-fromgroup": "Zo skupiny:",
+	"ea-pagesend": "Článok „$1” poslaný z $2",
+	"ea-nopage": "Prosím, uveďte stránku, ktorú chcete poslať, napr. [[Special:EmailPage/Hlavná stránka]].",
+	"ea-norecipients": "Nebola nájdená platná emailová adresa!",
+	"ea-listrecipients": "=== Zoznam $1 {{PLURAL:$1|príjemcu|príjemcov}} ===",
+	"ea-error": "'''Chyba pri odosielaní [[$1]]:''' ''$2''",
+	"ea-denied": "Nemáte potrebné oprávnenie",
+	"ea-sent": "[[{{ns:User}}:$3|$3]] úspešne poslal stránku [[$1]] '''$2''' {{PLURAL:$2|používateľovi|používateľom}}.",
+	"ea-selectrecipients": "Vybrať príjemcov",
+	"ea-compose": "Napísať obsah správy",
+	"ea-selectlist": "Ďalší príjemci vo forme názvov stránok alebo emailových adries\n*''položky oddeľujte pomocu , ; * \\n\n*''zoznam môže obsahovať šablóny a funkcie syntaktického analyzátora''",
+	"ea-show": "Zobraziť príjemcov",
+	"ea-send": "Poslať!",
+	"ea-subject": "Zadajte predmet emailu",
+	"ea-message": "Pred obsah pridať (nepovinne) správu (wikitext)",
+	"ea-selectcss": "Vyberte CSS štýl"
+}

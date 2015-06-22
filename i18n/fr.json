@@ -1,0 +1,26 @@
+{
+	"@metadata": {
+		"authors": [
+			"Grondin"
+		]
+	},
+	"emailpage": "Envoyer l’article par courriel",
+	"ea-desc": "Envoie le rendu d’une page HTML à une adresse électronique où à une liste d’adresses en utilisant [http://phpmailer.sourceforge.net phpmailer]",
+	"ea-heading": "=== Envoi de la page [[$1]] par courrier électronique ===",
+	"ea-fromgroup": "Depuis le groupe :",
+	"ea-pagesend": "Page « $1 » envoyée depuis $2",
+	"ea-nopage": "Veuillez spécifier une page à envoyer, par exemple [[Special:EmailPage/{{MediaWiki:Mainpage-url}}]]",
+	"ea-norecipients": "Aucune adresse courriel de trouvée !",
+	"ea-listrecipients": "=== Liste de $1 {{PLURAL:$1|destinataire|destinataires}} ===",
+	"ea-error": "'''Erreur de l’envoi de [[$1]] :''' ''$2''",
+	"ea-denied": "Permission refusée",
+	"ea-sent": "L'article [[$1]] a été envoyé avec succès à '''$2''' {{PLURAL:$2|destinataire|destinataires}} par [[{{ns:User}}:$3|$3]].",
+	"ea-selectrecipients": "Sélectionner les destinataires",
+	"ea-compose": "Composer le contenu",
+	"ea-selectlist": "Destinataires supplémentaires comme les titres d'articles ou les adresses courriel\n* ''séparer les articles avec , : * \\n''\n* ''la liste peut contenir des modèles et des fonctions parseurs''",
+	"ea-show": "Visionner les destinataires",
+	"ea-send": "Envoyer !",
+	"ea-subject": "Entrer une ligne « objet » pour le courriel",
+	"ea-message": "Ajouter le contenu au début avec un message facultatif (texte wiki)",
+	"ea-selectcss": "Sélectionner une feuille de style CSS"
+}

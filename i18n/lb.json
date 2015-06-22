@@ -1,0 +1,18 @@
+{
+	"@metadata": {
+		"authors": [
+			"Robby"
+		]
+	},
+	"emailpage": "Säit per Mail schécken",
+	"ea-heading": "=== Säit [[$1]] peer E-Mail verschécken ===",
+	"ea-fromgroup": "Vun der Grupp:",
+	"ea-pagesend": "D'Säit \"$1\" gouf verschéckt vum $2",
+	"ea-norecipients": "Keng gëlteg E-Mailadress fonnt",
+	"ea-denied": "Rechter refuséiert",
+	"ea-selectrecipients": "Adressaten erauswielen",
+	"ea-show": "Adressate weisen",
+	"ea-send": "Schécken!",
+	"ea-subject": "Gitt w.e.g. e Sujet fir d'E-Mail an",
+	"ea-selectcss": "Een ''CSS Stylesheet'' auswielen"
+}

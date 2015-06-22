@@ -1,83 +1,18 @@
 <?php
-/**
- * EmailPage extension - Send rendered HTML page to an email address or list of addresses using
- *                       the phpmailer class from http://phpmailer.sourceforge.net/
- *
- * See http://www.mediawiki.org/wiki/Extension:EmailPage for installation and usage details
- *
- * @file
- * @ingroup Extensions
- * @author Aran Dunkley [http://www.organicdesign.co.nz/nad User:Nad]
- * @copyright © 2007 Aran Dunkley
- * @licence GNU General Public Licence 2.0 or later
- */
-if( !defined( 'MEDIAWIKI' ) ) die( "Not an entry point." );
-
-define( 'EMAILPAGE_VERSION', "2.3.5, 2015-06-18" );
-
-$wgEmailPageGroup           = "sysop";               // Users must belong to this group to send emails (empty string means anyone can send)
-$wgEmailPageCss             = false;                 // A minimal CSS page to embed in the email (eg. monobook/main.css without portlets, actions etc)
-$wgEmailPageAllowRemoteAddr = array( "127.0.0.1" );  // Allow anonymous sending from these addresses
-$wgEmailPageAllowAllUsers   = false;                 // Whether to allow sending to all users (the "user" group)
-$wgEmailPageToolboxLink     = true;                  // Add a link to the sidebar toolbox?
-$wgEmailPageActionLink      = true;                  // Add a link to the actions links?
-$wgEmailPageSepPattern      = "|[\\x00-\\x20,;*]+|"; // Regular expression for splitting emails
-$wgEmailPageNoLinks         = false;                 // Change links in message to spans if set
-if( $wgEmailPageGroup ) $wgGroupPermissions['sysop'][$wgEmailPageGroup] = true;
-
-if( isset( $_SERVER['SERVER_ADDR'] ) ) $wgEmailPageAllowRemoteAddr[] = $_SERVER['SERVER_ADDR'];
-
-$dir = dirname( __FILE__ );
-$wgAutoloadClasses['SpecialEmailPage'] = "$dir/EmailPage_body.php";
-$wgExtensionMessagesFiles['EmailPage'] = "$dir/EmailPage.i18n.php";
-$wgExtensionAliasesFiles['EmailPage']  = "$dir/EmailPage.alias.php";
-$wgSpecialPages['EmailPage']           = "SpecialEmailPage";
-
-$wgExtensionCredits['specialpage'][] = array(
-	'path'           => __FILE__,
-	'name'           => "EmailPage",
-	'author'         => "[http://www.organicdesign.co.nz/aran Aran Dunkley]",
-	'descriptionmsg' => "ea-desc",
-	'url'            => "http://www.mediawiki.org/wiki/Extension:EmailPage",
-	'version'        => EMAILPAGE_VERSION
-);
-
-// If form has been posted, include the phpmailer class
-if( isset( $_REQUEST['ea-send'] ) ) {
-	if( $files = glob( "$dir/*/class.phpmailer.php" ) ) require_once( $files[0] );
-	else die( "PHPMailer class not found!" );
-}
-
-// Add toolbox and action links
-if( $wgEmailPageToolboxLink ) $wgHooks['SkinTemplateToolboxEnd'][] = 'wfEmailPageToolboxLink';
-if( $wgEmailPageActionLink )  {
-	$wgHooks['SkinTemplateTabs'][] = 'wfEmailPageActionLink';
-	$wgHooks['SkinTemplateNavigation'][] = 'wfEmailPageActionLinkVector';
-}
-
-function wfEmailPageToolboxLink() {
-	global $wgTitle, $wgUser, $wgEmailPageGroup;
-	if ( is_object( $wgTitle ) && $wgUser->isLoggedIn() && ( empty( $wgEmailPageGroup ) || in_array( $wgEmailPageGroup, $wgUser->getEffectiveGroups() ) ) ) {
-		$url = htmlspecialchars( SpecialPage::getTitleFor( 'EmailPage' )->getLocalURL( array( 'ea-title' => $wgTitle->getPrefixedText() ) ) );
-		echo( "<li><a href=\"$url\">" . wfMessage( 'emailpage' )->text() . "</a></li>" );
-	}
-	return true;
-}
-
-function wfEmailPageActionLink( $skin, &$actions ) {
-	global $wgTitle, $wgUser, $wgEmailPageGroup;
-	if( is_object( $wgTitle ) && $wgUser->isLoggedIn() && ( empty( $wgEmailPageGroup ) || in_array( $wgEmailPageGroup, $wgUser->getEffectiveGroups() ) ) ) {
-		$url = SpecialPage::getTitleFor( 'EmailPage' )->getLocalURL( array( 'ea-title' => $wgTitle->getPrefixedText() ) );
-		$actions['email'] = array( 'text' => wfMessage( 'email' )->text(), 'class' => false, 'href' => $url );
-	}
-	return true;
-}
-
-function wfEmailPageActionLinkVector( $skin, &$actions ) {
-	global $wgTitle, $wgUser, $wgEmailPageGroup;
-	if( is_object( $wgTitle ) && $wgUser->isLoggedIn() && ( empty( $wgEmailPageGroup ) || in_array( $wgEmailPageGroup, $wgUser->getEffectiveGroups() ) ) ) {
-		$url = SpecialPage::getTitleFor( 'EmailPage' )->getLocalURL( array( 'ea-title' => $wgTitle->getPrefixedText() ) );
-		$actions['views']['email'] = array( 'text' => wfMessage( 'email' )->text(), 'class' => false, 'href' => $url );
-	}
-	return true;
+if ( function_exists( 'wfLoadExtension' ) ) {
+	wfLoadExtension( 'FooBar' );
+	// Keep i18n globals so mergeMessageFileList.php doesn't break
+	$wgMessagesDirs['FooBar'] = __DIR__ . '/i18n';
+	$wgExtensionMessagesFiles['FooBar'] = __DIR__ . '/FooBar.alias.php';
+	wfWarn(
+		'Deprecated PHP entry point used for FooBar extension. Please use wfLoadExtension instead, ' .
+		'see https://www.mediawiki.org/wiki/Extension_registration for more details.'
+	);
+	return;
+} else {
+	die(
+		'<b>Fatal error:</b> This version of the FooBar extension requires MediaWiki 1.25+, ' .
+		'either <a href="https://mediawiki.org/wiki/Download">upgrade your MediaWiki</a> or download the extension code from the ' .
+		'<a href="https://github.com/OrganicDesign/extensions/tree/MediaWiki-1.24/MediaWiki">1.24 branch</a>.'
+	);
 }

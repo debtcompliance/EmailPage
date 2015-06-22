@@ -1,0 +1,26 @@
+{
+	"@metadata": {
+		"authors": [
+			"Maikking",
+			"Sp5uhe"
+		]
+	},
+	"ea-desc": "Wyślij stronę HTML na adres e-mail lub grupę adresów za pomocą [http://phpmailer.sourceforge.net phpmailer].",
+	"ea-heading": "=== Wysłanie na e-mail strony [[$1]] ===",
+	"ea-fromgroup": "Z grupy:",
+	"ea-pagesend": "Strona \"$1\" wysłana z $2",
+	"ea-nopage": "Wybierz stronę do wysłania, przykładowo [[Special:EmailPage/{{MediaWiki:Mainpage-url}}]].",
+	"ea-norecipients": "Nie znaleziono prawidłowego adresu e-mail.",
+	"ea-listrecipients": "=== {{PLURAL:$1|Odbiorca|$1 odbiorców}} ===",
+	"ea-error": "'''Błąd podczas wysyłania [[$1]]:''' ''$2''",
+	"ea-denied": "Odmowa dostępu",
+	"ea-sent": "Strona [[$1]] została wysłana do '''$2''' {{PLURAL:$2|odbiorcy|odbiorców}} przez [[{{ns:User}}:$3|$3]].",
+	"ea-selectrecipients": "Wybierz odbiorców",
+	"ea-compose": "Tworzenie zawartości",
+	"ea-selectlist": "Dodatkowi odbiorcy:\n*''oddziel obiekty za pomocą , ; * \\n''\n*''lista może zawierać szablony i funkcje parsera''",
+	"ea-show": "Pokaż odbiorców",
+	"ea-send": "Wyślij",
+	"ea-subject": "Wprowadź temat wiadomości e-mail",
+	"ea-message": "Dołączanie zawartości z dodatkową informacją.",
+	"ea-selectcss": "Wybierz styl CSS"
+}

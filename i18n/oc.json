@@ -1,0 +1,26 @@
+{
+	"@metadata": {
+		"authors": [
+			"Cedric31"
+		]
+	},
+	"emailpage": "Mandar l’article per corrièr electronic",
+	"ea-desc": "Manda lo rendut d’una pagina HTML a una adreça electronica o a una tièra d’adreças en utilizant [http://phpmailer.sourceforge.net phpmailer]",
+	"ea-heading": "=== Mandadís de la pagina [[$1]] per corrièr electronic ===",
+	"ea-fromgroup": "Dempuèi lo grop :",
+	"ea-pagesend": "Pagina « $1 » mandada dempuèi $2",
+	"ea-nopage": "Especificatz una pagina de mandar, per exemple [[Special:EmailPage/Acuèlh]]",
+	"ea-norecipients": "Cap d'adreça de corrièr electronic pas trobada !",
+	"ea-listrecipients": "=== Tièra de $1 {{PLURAL:$1|destinatari|destinataris}} ===",
+	"ea-error": "'''Error del mandadís de [[$1]] :''' ''$2''",
+	"ea-denied": "Permission refusada",
+	"ea-sent": "L'article [[$1]] es estat mandat amb succès a '''$2''' {{PLURAL:$2|destinatari|destinataris}} per [[{{ns:User}}:$3|$3]].",
+	"ea-selectrecipients": "Seleccionar los destinataris",
+	"ea-compose": "Compausar lo contengut",
+	"ea-selectlist": "Destinataris suplementaris coma los títols d'articles o las adreças de corrièr electronic\n* ''separar los articles amb , : * \\n''\n* ''la tièra pòt conténer de modèls e de foncions parsaires''",
+	"ea-show": "Visionar los destinataris",
+	"ea-send": "Mandar !",
+	"ea-subject": "Entrar una linha « objècte » pel corrièr electronic",
+	"ea-message": "Apondre lo contengut al començament amb un messatge facultatiu (tèxt wiki)",
+	"ea-selectcss": "Seleccionar un fuèlh d'estil CSS"
+}

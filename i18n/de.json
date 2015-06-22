@@ -1,0 +1,36 @@
+{
+	"@metadata": {
+		"authors": [
+			"Church of emacs",
+			"Leithian",
+			"kghbln"
+		]
+	},
+	"emailpage": "Per E-Mail versenden",
+	"ea-desc": "Nutzt [http://phpmailer.worxware.com/ PHPMailer], um Seiten an E-Mail-Adressen oder E-Mail-Adresslisten zu versenden",
+	"ea-heading": "E-Mail-Versand von Seite „[[$1]]“",
+	"ea-group-info": "Die Seite kann zusätzlich an die Mitglieder einer Benutzergruppe gesandt werden.",
+	"ea-pagesend": "Seite „$1“ (aus dem Wiki „$2“)",
+	"ea-nopage": "Es wurde keine Seite zum Versenden ausgewählt. Bitte hierzu entweder den Link in der Seitenleiste oder im Aktionsmenü nutzen.",
+	"ea-norecipients": "Es sind keine E-Mail-Adressen zum Versenden vorhanden!",
+	"ea-listrecipients": "Der E-Mail-Versand erfolgt an {{PLURAL:$1|den folgenden Empfänger|die folgenden $1 Empfänger}}:",
+	"ea-error": "'''Fehler beim Versenden von Seite „[[$1]]“:''' ''$2''",
+	"ea-denied": "Der E-Mail-Versand konnte aufgrund fehlender Berechtigung nicht durchgeführt werden.",
+	"ea-sent": "Die Seite „[[$1]]“ wurde erfolgreich von [[{{ns:User}}:$3|$3]] an {{PLURAL:$2|einen Empfänger|$2 Empfänger}} versandt.",
+	"ea-compose": "Nachricht erstellen",
+	"ea-show": "Empfängerliste anzeigen",
+	"ea-send": "Seite versenden",
+	"ea-from": "Von",
+	"ea-to": "An",
+	"ea-to-info": "E-Mail-Adressen können mit einem Semikolon, einem Komma, einem Sternchen oder einer neuen Zeile voneinander getrennt werden.",
+	"ea-cc": "CC",
+	"ea-subject": "Betreff",
+	"ea-message": "Nachricht",
+	"ea-message-info": "Der Seite eine optionale Nachricht voranstellen (in Wikitext).",
+	"ea-style": "Formatierungen",
+	"ea-selectcss": "CSS-Stylesheet auswählen",
+	"ea-data": "Daten",
+	"ea-selectrecord": "Diese Vorlagen können dazu genutzt werden die Felder im Nachrichtentext zu befüllen.",
+	"ea-allusers": "Alle Benutzer",
+	"ea-addcomments": "Benutzerkommentare einbeziehen?"
+}

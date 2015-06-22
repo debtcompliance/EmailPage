@@ -1,0 +1,24 @@
+{
+	"@metadata": {
+		"authors": [
+			"Minh Nguyen",
+			"Vinhtantran"
+		]
+	},
+	"emailpage": "Trang thư điện tử",
+	"ea-desc": "Gửi trang HTML giản lược đến một địa chỉ hoặc danh sách các địa chỉ thư điện tử dùng [http://phpmailer.sourceforge.net phpmailer].",
+	"ea-heading": "=== Gửi trang [[$1]] ===",
+	"ea-nopage": "Xin hãy xác định trang muốn gửi, ví dụ [[Special:EmailPage/{{MediaWiki:Mainpage-url}}]].",
+	"ea-norecipients": "Không tìm thấy địa chỉ thư điện tử hợp lệ!",
+	"ea-listrecipients": "=== Danh sách $1 {{PLURAL:$1|người nhận|người nhận}} ===",
+	"ea-error": "'''Lỗi khi gửi [[$1]]:''' ''$2''",
+	"ea-sent": "Trang [[$1]] đã được [[{{ns:User}}:$3|$3]] gửi thành công đến '''$2''' {{PLURAL:$2|người nhận|người nhận}}.",
+	"ea-selectrecipients": "Chọn người nhận",
+	"ea-compose": "Soạn nội dung",
+	"ea-selectlist": "Những người nhận khác theo tựa đề trang hoặc địa chỉ thư điện tử\n*''phân cách các mục bằng , ; * \\n\n*''danh sách có thể chứa tiêu bản và hàm cú pháp''",
+	"ea-show": "Hiển thị người nhận",
+	"ea-send": "Gửi!",
+	"ea-subject": "Nhập vào dòng tiêu đề cho thư điện tử",
+	"ea-message": "Gắn nội dung với thông điệp tùy chọn (văn bản wiki)",
+	"ea-selectcss": "Lựa chọn một kiểu trình bày CSS"
+}

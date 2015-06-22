@@ -1,0 +1,21 @@
+{
+	"@metadata": {
+		"authors": [
+			"Yekrats"
+		]
+	},
+	"emailpage": "Retpoŝtigi paĝon",
+	"ea-heading": "=== Retpoŝtigante paĝon [[$1]] ===",
+	"ea-fromgroup": "De grupo:",
+	"ea-pagesend": "Paĝo \"$1\" sendita de $2",
+	"ea-nopage": "Bonvolu enigi paĝon por retsendi, ekz-e [[Special:EmailPage/Main Page]].",
+	"ea-norecipients": "Neniaj validaj retadresoj trovitaj!",
+	"ea-listrecipients": "=== Listo de $1 {{PLURAL:$1|ricevonto|ricevontoj}} ===",
+	"ea-error": "'''Eraro sendante [[$1]]:''' ''$2''",
+	"ea-denied": "Malpermesite",
+	"ea-sent": "Paĝo [[$1]] sendita sukcese al '''$2''' {{PLURAL:$2|ricevonto|ricevontoj}} de [[{{ns:User}}:$3|$3]].",
+	"ea-selectrecipients": "Selektu ricevontojn",
+	"ea-compose": "Skribu enhavon",
+	"ea-send": "Sendi!",
+	"ea-selectcss": "Selekti CSS-tiparŝablono"
+}

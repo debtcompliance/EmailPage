@@ -1,0 +1,34 @@
+{
+	"@metadata": {
+		"authors": [
+			"Beth"
+		]
+	},
+	"emailpage": "Enviar página por e-mail",
+	"ea-desc": "Enviar página HTML renderizado para um endereço de e-mail ou uma lista de endereços usando [http://phpmailer.sourceforge.net phpmailer]",
+	"ea-heading": "Enviando a página [[$1]]",
+	"ea-group-info": "Você também pode enviar a página para os membros de um grupo",
+	"ea-pagesend": "Página \"$1\" enviado por $2",
+	"ea-nopage": "Nenhuma página foi especificado para o envio, por favor, use os links de e-mail do menu lateral ou os ações de página.",
+	"ea-norecipients": "Nenhum endereço de e-mail válido encontrado!",
+	"ea-listrecipients": "{{PLURAL:$1|Lista 1 destinatário|Listagem $1 destinatários}}",
+	"ea-error": "'''Erro de envio de [[$1]]:''' ''$2''",
+	"ea-denied": "Permissão negada",
+	"ea-sent": "Página [[$1]] enviada com sucesso para $2 {{PLURAL:$2|destinatário|destinatários}} por [[{{ns:User}}:$3|$3]].",
+	"ea-compose": "Compor conteúdo",
+	"ea-show": "Ver lista de destinatários",
+	"ea-from": "De",
+	"ea-to": "Para",
+	"ea-to-info": "Endereços de e-mail podem ser separados por um ou mais ponto e vírgula, vírgula, asterisco ou caracteres de nova linha",
+	"ea-cc": "Cc",
+	"ea-send": "Enviar",
+	"ea-subject": "Assunto",
+	"ea-message": "Mensagem",
+	"ea-message-info": "Anteceder conteúdo com mensagem wikitext opcional",
+	"ea-style": "Estilo",
+	"ea-selectcss": "Você pode selecionar uma folha de estilo CSS",
+	"ea-data": "Dados",
+	"ea-selectrecord": "Estes modelos podem ser utilizados para preencher os campos no conteúdo da mensagem",
+	"ea-allusers": "TODOS OS USUÁRIOS",
+	"ea-addcomments": "Incluir comentários de usuários?"
+}

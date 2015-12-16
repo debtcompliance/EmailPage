@@ -10,6 +10,7 @@ class EmailPage {
 
 		// If form has been posted, include the phpmailer class
 		if( isset( $_REQUEST['ea-send'] ) ) {
+			$dir = dirname( __FILE__ );
 			if( $files = glob( "$dir/*/class.phpmailer.php" ) ) require_once( $files[0] );
 			else die( "PHPMailer class not found!" );
 		}

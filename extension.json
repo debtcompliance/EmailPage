@@ -1,10 +1,10 @@
 {
 	"name": "EmailPage",
-	"version": "2.4.0, 2015-06-22",
+	"version": "2.4.1, 2016-04-07",
 	"author": ["[http://www.organicdesign.co.nz/aran Aran Dunkley]"],
-	"url": "http://www.mediawiki.org/wiki/Extension:EmailPage",
+	"url": "https://www.mediawiki.org/wiki/Extension:EmailPage",
 	"descriptionmsg": "ea-desc",
-	"license-name": "[https://www.gnu.org/licenses/gpl-2.0.html GNU General Public Licence 2.0] or later",
+	"license-name": "GPL-2.0+",
 	"type": "specialpage",
 	"callback": "EmailPage::onRegistration",
 	"AutoloadClasses": {

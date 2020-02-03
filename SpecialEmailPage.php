@@ -26,7 +26,7 @@ class SpecialEmailPage extends SpecialPage {
 		global $wgOut, $wgUser, $wgRequest, $wgParser, $wgEmailPageContactsCat, $wgGroupPermissions, $wgSitename,
 			$wgRecordAdminCategory, $wgEmailPageCss, $wgEmailPageAllowAllUsers, $wgEmergencyContact;
 
-		$db = wfGetDB( DB_SLAVE );
+		$db = wfGetDB( DB_REPLICA );
 		$param = str_replace( '_', ' ', $param );
 		$this->setHeaders();
 
@@ -45,8 +45,8 @@ class SpecialEmailPage extends SpecialPage {
 		$this->db       = $db;
 
 		// Bail if no page title to send has been specified
-		if( $this->title ) $wgOut->addWikiText( "===" . wfMessage( 'ea-heading', $this->title )->text() . "===" );
-		else return $wgOut->addWikiText( wfMessage( 'ea-nopage' )->text() );
+		if( $this->title ) $wgOut->addWikiTextAsContent( "===" . wfMessage( 'ea-heading', $this->title )->text() . "===" );
+		else return $wgOut->addWikiTextAsContent( wfMessage( 'ea-nopage' )->text() );
 
 		// If the send button was clicked, attempt to send and exit
 		if( $wgRequest->getText( 'ea-send', false ) ) return $this->send();
@@ -164,7 +164,7 @@ class SpecialEmailPage extends SpecialPage {
 		if( $wgEmailPageGroup && !in_array( $wgEmailPageGroup, $wgUser->getGroups() )
 		&& !in_array( $_SERVER['REMOTE_ADDR'], $wgEmailPageAllowRemoteAddr ) ) {
 			$denied = wfMessage( 'ea-denied' )->text();
-			$wgOut->addWikiText( wfMessage( 'ea-error', $this->title, $denied )->text() );
+			$wgOut->addWikiTextAsContent( wfMessage( 'ea-error', $this->title, $denied )->text() );
 			return false;
 		}
 
@@ -252,7 +252,7 @@ class SpecialEmailPage extends SpecialPage {
 		}
 		else $msg = wfMessage( 'ea-error', $this->title, wfMessage( 'ea-norecipients' ) )->text();
 
-		$wgOut->addWikiText( $msg );
+		$wgOut->addWikiTextAsContent( $msg );
 		return $send ? $state : $count;
 	}
 

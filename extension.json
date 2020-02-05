@@ -1,7 +1,7 @@
 {
 	"name": "EmailPage",
-	"version": "2.4.4, 2017-04-26",
-	"author": ["[http://www.organicdesign.co.nz/aran Aran Dunkley]"],
+	"version": "2.5.0, 2020-02-05",
+	"author": ["[http://www.organicdesign.co.nz/aran Aran Dunkley]", "[http://absorto.dev/ Igor Absorto]"],
 	"url": "https://www.mediawiki.org/wiki/Extension:EmailPage",
 	"descriptionmsg": "ea-desc",
 	"license-name": "GPL-2.0+",

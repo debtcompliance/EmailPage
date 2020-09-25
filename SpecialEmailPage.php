@@ -1,4 +1,7 @@
 <?php
+// Import the PHPMailer class into the global namespace
+use PHPMailer\PHPMailer\PHPMailer;
+
 class SpecialEmailPage extends SpecialPage {
 
 	var $recipients = array();
@@ -158,7 +161,7 @@ class SpecialEmailPage extends SpecialPage {
 	function send( $send = true ) {
 		global $wgOut, $wgUser, $wgParser, $wgServer, $wgScript, $wgArticlePath, $wgScriptPath, $wgEmergencyContact,
 			$wgEmailPageCss, $wgEmailPageGroup, $wgEmailPageAllowRemoteAddr, $wgEmailPageAllowAllUsers, $wgEmailPageSepPattern,
-			$wgEmailPageNoLinks;
+			$wgEmailPageNoLinks, $wgEmailPageCharSet;
 
 		// Set error and bail if user not in postmaster group, and request not from trusted address
 		if( $wgEmailPageGroup && !in_array( $wgEmailPageGroup, $wgUser->getGroups() )
@@ -228,7 +231,8 @@ class SpecialEmailPage extends SpecialPage {
 
 			// Set up new mailer instance if sending
 			if( $send ) {
-				$mail           = new PHPMailer\PHPMailer\PHPMailer;
+				$mail           = new PHPMailer;
+				$mail->CharSet  = $wgEmailPageCharSet ? $wgEmailPageCharSet : PHPMailer::CHARSET_UTF8;
 				$mail->From     = $this->from;
 				$mail->FromName = User::whoIsReal( $wgUser->getId() );
 				$mail->Subject  = $this->subject;

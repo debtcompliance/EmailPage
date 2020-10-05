@@ -19,7 +19,9 @@
 		"EmailPageToolboxLink":     true,                  "@": "Add a link to the sidebar toolbox?",
 		"EmailPageActionLink":      true,                  "@": "Add a link to the actions links?",
 		"EmailPageSepPattern":      "|[\r\n ,;*]+|",       "@": "Regular expression for splitting emails",
-		"EmailPageNoLinks":         false,                 "@": "Change links in message to spans if set"
+		"EmailPageNoLinks":         false,                 "@": "Change links in message to spans if set",
+		"EmailPageCharSet":         "utf-8",               "@": "Define the character set of the message. Either us-ascii, iso-8859-1 or utf-8."
+
 	},
 	"ExtensionMessagesFiles": {
 		"EmailPageAlias": "EmailPage.alias.php"
@@ -29,5 +31,6 @@
 	},
 	"SpecialPages": {
 		"EmailPage": "SpecialEmailPage"
-	}
+	},
+	"manifest_version": 1
 }

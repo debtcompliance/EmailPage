@@ -232,7 +232,7 @@ class SpecialEmailPage extends SpecialPage {
 			// Set up new mailer instance if sending
 			if( $send ) {
 				$mail           = new PHPMailer;
-				$mail->CharSet  = $wgEmailPageCharSet ? $wgEmailPageCharSet : PHPMailer::CHARSET_UTF8;
+				$mail->CharSet  = $wgEmailPageCharSet; 
 				$mail->From     = $this->from;
 				$mail->FromName = User::whoIsReal( $wgUser->getId() );
 				$mail->Subject  = $this->subject;

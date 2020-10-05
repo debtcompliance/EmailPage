@@ -16,27 +16,23 @@ class EmailPage {
 		}
 
 		// Add toolbox and action links
-		if( $wgEmailPageToolboxLink ) Hooks::register( 'SkinTemplateToolboxEnd', __CLASS__ . '::onSkinTemplateToolboxEnd' );
+		$hookContainer = \MediaWiki\MediaWikiServices::getInstance()->getHookContainer();
+		if( $wgEmailPageToolboxLink ) { 
+			$hookContainer->register( 'SidebarBeforeOutput', __CLASS__ . '::onSidebarBeforeOutput' );
+		}
 		if( $wgEmailPageActionLink )  {
-			Hooks::register( 'SkinTemplateTabs', __CLASS__ . '::onSkinTemplateTabs' );
-			Hooks::register( 'SkinTemplateNavigation', __CLASS__ . '::onSkinTemplateNavigation' );
+			$hookContainer->register( 'SkinTemplateNavigation', __CLASS__ . '::onSkinTemplateNavigation' );
 		}
 	}
 
-	public static function onSkinTemplateToolboxEnd() {
-		global $wgTitle, $wgUser, $wgEmailPageGroup;
-		if ( is_object( $wgTitle ) && $wgUser->isLoggedIn() && ( empty( $wgEmailPageGroup ) || in_array( $wgEmailPageGroup, $wgUser->getEffectiveGroups() ) ) ) {
-			$url = htmlspecialchars( SpecialPage::getTitleFor( 'EmailPage' )->getLocalURL( array( 'ea-title' => $wgTitle->getPrefixedText() ) ) );
-			echo( "<li><a href=\"$url\">" . wfMessage( 'emailpage' )->text() . "</a></li>" );
-		}
-		return true;
-	}
-
-	public static function onSkinTemplateTabs( $skin, &$actions ) {
+	public static function onSidebarBeforeOutput( Skin $skin, &$sidebar ) {
 		global $wgTitle, $wgUser, $wgEmailPageGroup;
 		if( is_object( $wgTitle ) && $wgUser->isLoggedIn() && ( empty( $wgEmailPageGroup ) || in_array( $wgEmailPageGroup, $wgUser->getEffectiveGroups() ) ) ) {
-			$url = SpecialPage::getTitleFor( 'EmailPage' )->getLocalURL( array( 'ea-title' => $wgTitle->getPrefixedText() ) );
-			$actions['email'] = array( 'text' => wfMessage( 'email' )->text(), 'class' => false, 'href' => $url );
+			$url = htmlspecialchars( SpecialPage::getTitleFor( 'EmailPage' )->getLocalURL( [ 'ea-title' => $wgTitle->getPrefixedText() ] ) );
+			$sidebar['TOOLBOX'][] = [
+				"text" => wfMessage( 'emailpage' )->text(),
+				"href" => $url,
+			];
 		}
 		return true;
 	}
@@ -44,8 +40,8 @@ class EmailPage {
 	public static function onSkinTemplateNavigation( $skin, &$actions ) {
 		global $wgTitle, $wgUser, $wgEmailPageGroup;
 		if( is_object( $wgTitle ) && $wgUser->isLoggedIn() && ( empty( $wgEmailPageGroup ) || in_array( $wgEmailPageGroup, $wgUser->getEffectiveGroups() ) ) ) {
-			$url = SpecialPage::getTitleFor( 'EmailPage' )->getLocalURL( array( 'ea-title' => $wgTitle->getPrefixedText() ) );
-			$actions['views']['email'] = array( 'text' => wfMessage( 'email' )->text(), 'class' => false, 'href' => $url );
+			$url = SpecialPage::getTitleFor( 'EmailPage' )->getLocalURL( [ 'ea-title' => $wgTitle->getPrefixedText() ] );
+			$actions['views']['email'] = [ 'text' => wfMessage( 'email' )->text(), 'class' => false, 'href' => $url ];
 		}
 		return true;
 	}

@@ -6,75 +6,74 @@
  * @ingroup Extensions
  */
 
-$aliases = array();
+$aliases = [];
 
 /** English
  * @author Jon Harald Søby
  */
-$aliases['en'] = array(
-	'EmailPage' => array( 'EmailPage' ),
-);
+$aliases['en'] = [
+	'EmailPage' => [ 'EmailPage' ],
+];
 
-/** Arabic (العربية)
+/** Arabic (العربية]
  * @author Meno25
  */
-$aliases['ar'] = array(
-	'EmailPage' => array( 'مراسلة_الصفحة' ),
-);
+$aliases['ar'] = [
+	'EmailPage' => [ 'مراسلة_الصفحة' ],
+];
 
-/** Egyptian Spoken Arabic (مصرى)
+/** Egyptian Spoken Arabic (مصرى]
  * @author Meno25
  */
-$aliases['arz'] = array(
-	'EmailPage' => array( 'مراسلة_الصفحة' ),
-);
+$aliases['arz'] = [
+	'EmailPage' => [ 'مراسلة_الصفحة' ],
+];
 
-/** French (Français) */
-$aliases['fr'] = array(
-	'EmailPage' => array( 'EnvoyerPage', 'Envoyer Page' ),
-);
+/** French (Français] */
+$aliases['fr'] = [
+	'EmailPage' => [ 'EnvoyerPage', 'Envoyer Page' ],
+];
 
-/** Galician (Galego) */
-$aliases['gl'] = array(
-	'EmailPage' => array( 'Enviar páxinas por correo electrónico' ),
-);
+/** Galician (Galego] */
+$aliases['gl'] = [
+	'EmailPage' => [ 'Enviar páxinas por correo electrónico' ],
+];
 
-/** Hebrew (עברית)
+/** Hebrew (עברית]
  * @author Rotem Liss
  */
-$aliases['he'] = array(
-	'EmailPage' => array( 'שליחת_דף_בדואר' ),
-);
+$aliases['he'] = [
+	'EmailPage' => [ 'שליחת_דף_בדואר' ],
+];
 
-/** Haitian (Kreyòl ayisyen) */
-$aliases['ht'] = array(
-	'EmailPage' => array( 'EmèlAtik' ),
-);
+/** Haitian (Kreyòl ayisyen] */
+$aliases['ht'] = [
+	'EmailPage' => [ 'EmèlAtik' ],
+];
 
-/** Hungarian (Magyar) */
-$aliases['hu'] = array(
-	'EmailPage' => array( 'Szócikk elküldése e-mailben' ),
-);
+/** Hungarian (Magyar] */
+$aliases['hu'] = [
+	'EmailPage' => [ 'Szócikk elküldése e-mailben' ],
+];
 
-/** Luxembourgish (Lëtzebuergesch) */
-$aliases['lb'] = array(
-	'EmailPage' => array( 'E-Mail-Säiten' ),
-);
+/** Luxembourgish (Lëtzebuergesch] */
+$aliases['lb'] = [
+	'EmailPage' => [ 'E-Mail-Säiten' ],
+];
 
-/** Dutch (Nederlands) */
-$aliases['nl'] = array(
-	'EmailPage' => array( 'PaginaE-mailen', 'PaginaEmailen' ),
-);
+/** Dutch (Nederlands] */
+$aliases['nl'] = [
+	'EmailPage' => [ 'PaginaE-mailen', 'PaginaEmailen' ],
+];
 
-/** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)
+/** Norwegian (bokmål]‬ (‪Norsk (bokmål]‬]
  * @author Jon Harald Søby
  */
-$aliases['no'] = array(
-	'EmailPage' => array( 'Send side som e-post' ),
-);
+$aliases['no'] = [
+	'EmailPage' => [ 'Send side som e-post' ],
+];
 
-/** Pashto (پښتو) */
-$aliases['ps'] = array(
-	'EmailPage' => array( 'د برېښليک مخونه' ),
-);
-
+/** Pashto (پښتو] */
+$aliases['ps'] = [
+	'EmailPage' => [ 'د برېښليک مخونه' ],
+];

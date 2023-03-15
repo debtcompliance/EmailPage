@@ -36,7 +36,7 @@ class EmailPage {
 
 	public static function onSidebarBeforeOutput( Skin $skin, &$sidebar ) {
 		global $wgTitle, $wgUser, $wgEmailPageGroup;
-		if ( is_object( $wgTitle ) && $wgUser->isLoggedIn()
+		if ( is_object( $wgTitle ) && $wgUser->isRegistered()
 			&& ( empty( $wgEmailPageGroup ) || in_array( $wgEmailPageGroup, $wgUser->getEffectiveGroups() ) )
 		) {
 			$url = htmlspecialchars( SpecialPage::getTitleFor( 'EmailPage' )->getLocalURL( [ 'ea-title' => $wgTitle->getPrefixedText() ] ) );
@@ -51,7 +51,7 @@ class EmailPage {
 	public static function onSkinTemplateNavigation( $skin, &$actions ) {
 		global $wgTitle, $wgUser, $wgEmailPageGroup;
 		if ( is_object( $wgTitle )
-			&& $wgUser->isLoggedIn()
+			&& $wgUser->isRegistered()
 			&& ( empty( $wgEmailPageGroup ) || in_array( $wgEmailPageGroup, $wgUser->getEffectiveGroups() ) )
 		) {
 			$url = SpecialPage::getTitleFor( 'EmailPage' )->getLocalURL( [ 'ea-title' => $wgTitle->getPrefixedText() ] );

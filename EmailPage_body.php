@@ -35,9 +35,9 @@ class EmailPage {
 	}
 
 	public static function onSidebarBeforeOutput( Skin $skin, &$sidebar ) {
-		global $wgTitle, $wgUser, $wgEmailPageGroup;
-		if ( is_object( $wgTitle ) && $wgUser->isRegistered()
-			&& ( empty( $wgEmailPageGroup ) || in_array( $wgEmailPageGroup, $wgUser->getEffectiveGroups() ) )
+		global $wgTitle, $wgEmailPageGroup;
+		if ( is_object( $wgTitle ) && $skin->getUser()->isRegistered()
+			&& ( empty( $wgEmailPageGroup ) || in_array( $wgEmailPageGroup, $skin->getUser()->getEffectiveGroups() ) )
 		) {
 			$url = htmlspecialchars( SpecialPage::getTitleFor( 'EmailPage' )->getLocalURL( [ 'ea-title' => $wgTitle->getPrefixedText() ] ) );
 			$sidebar['TOOLBOX'][] = [
@@ -48,11 +48,11 @@ class EmailPage {
 		return true;
 	}
 
-	public static function onSkinTemplateNavigation( $skin, &$actions ) {
-		global $wgTitle, $wgUser, $wgEmailPageGroup;
+	public static function onSkinTemplateNavigation( SkinTemplate $skinTemplate, array &$links ) {
+		global $wgTitle, $wgEmailPageGroup;
 		if ( is_object( $wgTitle )
-			&& $wgUser->isRegistered()
-			&& ( empty( $wgEmailPageGroup ) || in_array( $wgEmailPageGroup, $wgUser->getEffectiveGroups() ) )
+			&& $skinTemplate->getUser()->isRegistered()
+			&& ( empty( $wgEmailPageGroup ) || in_array( $wgEmailPageGroup, $skinTemplate->getUser()->getEffectiveGroups() ) )
 		) {
 			$url = SpecialPage::getTitleFor( 'EmailPage' )->getLocalURL( [ 'ea-title' => $wgTitle->getPrefixedText() ] );
 			$actions['views']['email'] = [ 'text' => wfMessage( 'email' )->text(), 'class' => false, 'href' => $url ];

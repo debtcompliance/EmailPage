@@ -30,33 +30,31 @@ class EmailPage {
 			$hookContainer->register( 'SidebarBeforeOutput', __CLASS__ . '::onSidebarBeforeOutput' );
 		}
 		if ( $wgEmailPageActionLink )  {
-			$hookContainer->register( 'SkinTemplateNavigation', __CLASS__ . '::onSkinTemplateNavigation' );
+			$hookContainer->register( 'SkinTemplateNavigation::Universal', __CLASS__ . '::onSkinTemplateNavigationUniversal' );
 		}
 	}
 
 	public static function onSidebarBeforeOutput( Skin $skin, &$sidebar ) {
-		global $wgTitle, $wgEmailPageGroup;
-		if ( is_object( $wgTitle ) && $skin->getUser()->isRegistered()
+		global $wgEmailPageGroup;
+		if ( $skin->getTitle() && $skin->getUser()->isRegistered()
 			&& ( empty( $wgEmailPageGroup ) || in_array( $wgEmailPageGroup, $skin->getUser()->getEffectiveGroups() ) )
 		) {
-			$url = htmlspecialchars( SpecialPage::getTitleFor( 'EmailPage' )->getLocalURL( [ 'ea-title' => $wgTitle->getPrefixedText() ] ) );
+			$url = htmlspecialchars( SpecialPage::getTitleFor( 'EmailPage' )->getLocalURL( [ 'ea-title' => $skin->getTitle()->getPrefixedText() ] ) );
 			$sidebar['TOOLBOX'][] = [
 				"text" => wfMessage( 'emailpage' )->text(),
 				"href" => $url,
 			];
 		}
-		return true;
 	}
 
-	public static function onSkinTemplateNavigation( SkinTemplate $skinTemplate, array &$links ) {
-		global $wgTitle, $wgEmailPageGroup;
-		if ( is_object( $wgTitle )
+	public static function onSkinTemplateNavigationUniversal( SkinTemplate $skinTemplate, array &$links ) {
+		global $wgEmailPageGroup;
+		if ( $skinTemplate->getTitle()
 			&& $skinTemplate->getUser()->isRegistered()
 			&& ( empty( $wgEmailPageGroup ) || in_array( $wgEmailPageGroup, $skinTemplate->getUser()->getEffectiveGroups() ) )
 		) {
-			$url = SpecialPage::getTitleFor( 'EmailPage' )->getLocalURL( [ 'ea-title' => $wgTitle->getPrefixedText() ] );
-			$actions['views']['email'] = [ 'text' => wfMessage( 'email' )->text(), 'class' => false, 'href' => $url ];
+			$url = SpecialPage::getTitleFor( 'EmailPage' )->getLocalURL( [ 'ea-title' => $skinTemplate->getTitle()->getPrefixedText() ] );
+			$links['views']['email'] = [ 'text' => wfMessage( 'email' )->text(), 'class' => false, 'href' => $url ];
 		}
-		return true;
 	}
 }

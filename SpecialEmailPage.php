@@ -27,7 +27,7 @@ class SpecialEmailPage extends SpecialPage {
 		global $wgGroupPermissions, $wgSitename, $wgEmailPageCss, $wgEmailPageAllowAllUsers, $wgEmergencyContact;
 
 		$db = wfGetDB( DB_REPLICA );
-		$param   = str_replace( '_', ' ', $param );
+		$param   = str_replace( '_', ' ', $param ?? '' );
 		$out     = $this->getOutput();
 		$user    = $this->getUser();
 		$request = $this->getRequest();

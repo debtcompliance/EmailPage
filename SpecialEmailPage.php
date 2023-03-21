@@ -205,7 +205,7 @@ class SpecialEmailPage extends SpecialPage {
 
 		// Compose the wikitext content of the page to send
 		$title = Title::newFromText( $this->title );
-		$opt   = new ParserOptions;
+		$opt   = ParserOptions::newFromContext( $this->getContext() );
 		$page  = new Article( $title );
 		$parser = \MediaWiki\MediaWikiServices::getInstance()->getParser();
 		$message = $page->getPage()->getContent()->getNativeData();

@@ -1,13 +1,20 @@
 {
 	"name": "EmailPage",
-	"version": "2.5.1, 2021-02-13",
+	"version": "3.0.0-beta",
+	"license-name": "GPL-2.0-or-later",
 	"author": [
-		"[http://www.organicdesign.co.nz/aran Aran Dunkley]",
-		"[http://absorto.dev/ Igor Absorto]"
+		"[https://organicdesign.nz/User:Nad Aran Dunkley]",
+		"[https://absorto.dev Igor Absorto]",
+		"[https://professional.wiki/en/mediawiki-development Professional Wiki]"
 	],
 	"url": "https://www.mediawiki.org/wiki/Extension:EmailPage",
 	"descriptionmsg": "ea-desc",
-	"license-name": "GPL-2.0+",
+	"requires": {
+		"MediaWiki": ">= 1.39.0",
+		"platform": {
+			"php": ">= 8.0"
+		}
+	},
 	"type": "specialpage",
 	"callback": "EmailPage::onRegistration",
 	"AutoloadClasses": {
@@ -15,25 +22,55 @@
 		"SpecialEmailPage": "SpecialEmailPage.php"
 	},
 	"config": {
-		"EmailPageGroup":           "sysop",               "@": "Users must belong to this group to send emails (empty string means anyone can send)",
-		"EmailPageCss":             false,                 "@": "A minimal CSS page to embed in the email (eg. monobook/main.css without portlets, actions etc)",
-		"EmailPageAllowRemoteAddr": ["127.0.0.1"],         "@": "Allow anonymous sending from these addresses",
-		"EmailPageAllowAllUsers":   false,                 "@": "Whether to allow sending to all users (the \"user\" group)",
-		"EmailPageToolboxLink":     true,                  "@": "Add a link to the sidebar toolbox?",
-		"EmailPageActionLink":      true,                  "@": "Add a link to the actions links?",
-		"EmailPageSepPattern":      "|[\r\n ,;*]+|",       "@": "Regular expression for splitting emails",
-		"EmailPageNoLinks":         false,                 "@": "Change links in message to spans if set",
-		"EmailPageCharSet":         "utf-8",               "@": "Define the character set of the message. Either us-ascii, iso-8859-1 or utf-8."
-
+		"EmailPageGroup": {
+			"description": "Defines the user group allowd to send emails. An empty string means that anyone can send",
+			"value": "sysop"
+		},
+		"EmailPageCss": {
+			"description": "Whether or not a minimal CSS page should be embedded in the email, e.g., \"monobook/main.css\" without portlets, actions etc.",
+			"value": false
+		},
+		"EmailPageAllowRemoteAddr": {
+			"description": "Defines that anonymous sending from these addresses is done",
+			"value": [
+				"127.0.0.1"
+			]
+		},
+		"EmailPageAllowAllUsers": {
+			"description": "Whether or not to allow sending to all users, i.e., the \"user\" group",
+			"value": false
+		},
+		"EmailPageToolboxLink": {
+			"description": "Whether or not a link should be shown in the sidebar toolbox",
+			"value": true
+		},
+		"EmailPageActionLink": {
+			"description": "Whether or not a link should be shown as actions link",
+			"value": true
+		},
+		"EmailPageSepPattern": {
+			"description": "Defines the regular expression for splitting emails",
+			"value": "|[\r\n ,;*]+|"
+		},
+		"EmailPageNoLinks": {
+			"description": "Whether or not to change links in message to spans if set",
+			"value": false
+		},
+		"EmailPageCharSet": {
+			"description": "Defines the character set of the message. Either \"us-ascii\", \"iso-8859-1\" or \"utf-8\"",
+			"value": "utf-8"
+		}
 	},
 	"ExtensionMessagesFiles": {
 		"EmailPageAlias": "EmailPage.alias.php"
 	},
 	"MessagesDirs": {
-		"EmailPage": ["i18n"]
+		"EmailPage": [
+			"i18n"
+		]
 	},
 	"SpecialPages": {
 		"EmailPage": "SpecialEmailPage"
 	},
-	"manifest_version": 1
+	"manifest_version": 2
 }

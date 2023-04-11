@@ -32,7 +32,9 @@
 		},
 		"EmailPageAllowRemoteAddr": {
 			"description": "Defines that anonymous sending from these addresses is done",
-			"value": "127.0.0.1"
+			"value": [
+				"127.0.0.1"
+			]
 		},
 		"EmailPageAllowAllUsers": {
 			"description": "Whether or not to allow sending to all users, i.e., the \"user\" group",

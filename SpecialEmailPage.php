@@ -205,6 +205,13 @@ class SpecialEmailPage extends SpecialPage {
 
 		// Compose the wikitext content of the page to send
 		$title = Title::newFromText( $this->title );
+		
+		// if ( !$title->isContentPage() ) {
+		if ( $title->isSpecialPage() ) {
+			$out->addWikiTextAsContent( wfMessage( 'ea-no-content-page' )->text() );
+			return false;
+		}
+		
 		$opt   = ParserOptions::newFromContext( $this->getContext() );
 		$page  = new Article( $title );
 		$parser = \MediaWiki\MediaWikiServices::getInstance()->getParser();
@@ -258,6 +265,9 @@ class SpecialEmailPage extends SpecialPage {
 			if ( $send ) {
 
 				$mail           = new PHPMailer\PHPMailer\PHPMailer;
+				// or $mail->IsSMTP();
+				$mail->isSendmail();
+				
 				$mail->CharSet  = $wgEmailPageCharSet;
 				$mail->From     = $this->from;
 				$mail->FromName = User::whoIsReal( $user->getId() );

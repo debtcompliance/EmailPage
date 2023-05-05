@@ -265,8 +265,8 @@ class SpecialEmailPage extends SpecialPage {
 			if ( $send ) {
 
 				$mail           = new PHPMailer\PHPMailer\PHPMailer;
-				// or $mail->IsSMTP();
-				$mail->isSendmail();
+				// or $mail->isSendmail();
+				$mail->IsSMTP();
 				
 				$mail->CharSet  = $wgEmailPageCharSet;
 				$mail->From     = $this->from;

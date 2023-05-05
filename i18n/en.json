@@ -14,6 +14,7 @@
 	"ea-listrecipients": "Listing {{PLURAL:$1|recipient|$1 recipients}}",
 	"ea-error": "'''Error sending [[$1]]:''' ''$2''",
 	"ea-denied": "Permission denied",
+	"ea-no-content-page": "No content page",
 	"ea-sent": "Page [[$1]] sent successfully to '''$2''' {{PLURAL:$2|recipient|recipients}} by [[{{ns:User}}:$3|$3]].",
 	"ea-compose": "Compose content",
 	"ea-show": "View recipient list",

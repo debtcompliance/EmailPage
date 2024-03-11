@@ -1,4 +1,7 @@
 <?php
+
+use MediaWiki\MediaWikiServices;
+
 class EmailPage {
 
 	public static function onRegistration() {

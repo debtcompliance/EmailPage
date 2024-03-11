@@ -36,8 +36,10 @@ class EmailPage {
 
 	public static function onSidebarBeforeOutput( Skin $skin, &$sidebar ) {
 		global $wgEmailPageGroup;
-		if ( $skin->getTitle() && $skin->getUser()->isRegistered()
-			&& ( empty( $wgEmailPageGroup ) || in_array( $wgEmailPageGroup, $skin->getUser()->getEffectiveGroups() ) )
+		$user = $skin->getUser();
+		$groups = MediaWikiServices::getInstance()->getUserGroupManager()->getUserEffectiveGroups( $user );
+		if ( $skin->getTitle() && $user->isRegistered()
+			&& ( empty( $wgEmailPageGroup ) || in_array( $wgEmailPageGroup, $groups ) )
 		) {
 			$url = htmlspecialchars( SpecialPage::getTitleFor( 'EmailPage' )->getLocalURL( [ 'ea-title' => $skin->getTitle()->getPrefixedText() ] ) );
 			$sidebar['TOOLBOX'][] = [
@@ -49,9 +51,11 @@ class EmailPage {
 
 	public static function onSkinTemplateNavigationUniversal( SkinTemplate $skinTemplate, array &$links ) {
 		global $wgEmailPageGroup;
+		$user = $skinTemplate->getUser();
+		$groups = MediaWikiServices::getInstance()->getUserGroupManager()->getUserEffectiveGroups( $user );
 		if ( $skinTemplate->getTitle()
-			&& $skinTemplate->getUser()->isRegistered()
-			&& ( empty( $wgEmailPageGroup ) || in_array( $wgEmailPageGroup, $skinTemplate->getUser()->getEffectiveGroups() ) )
+			&& $user
+			&& ( empty( $wgEmailPageGroup ) || in_array( $wgEmailPageGroup, $groups ) )
 		) {
 			$url = SpecialPage::getTitleFor( 'EmailPage' )->getLocalURL( [ 'ea-title' => $skinTemplate->getTitle()->getPrefixedText() ] );
 			$links['views']['email'] = [ 'text' => wfMessage( 'email' )->text(), 'class' => false, 'href' => $url ];

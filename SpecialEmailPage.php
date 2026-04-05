@@ -1,5 +1,7 @@
 <?php
 
+use MediaWiki\MediaWikiServices;
+
 class SpecialEmailPage extends SpecialPage {
 
 	public $recipients = [];
@@ -11,7 +13,7 @@ class SpecialEmailPage extends SpecialPage {
 	public $textonly;
 	public $css;
 	public $record;
-	public $db;
+	public $dbr;
 	public $parser;
 	public $args;
 
@@ -26,7 +28,7 @@ class SpecialEmailPage extends SpecialPage {
 	public function execute( $param ) {
 		global $wgGroupPermissions, $wgSitename, $wgEmailPageCss, $wgEmailPageAllowAllUsers, $wgEmergencyContact;
 
-		$db = wfGetDB( DB_REPLICA );
+		$dbr     = MediaWikiServices::getInstance()->getConnectionProvider()->getReplicaDatabase();
 		$param   = str_replace( '_', ' ', $param ?? '' );
 		$out     = $this->getOutput();
 		$user    = $this->getUser();
@@ -45,7 +47,7 @@ class SpecialEmailPage extends SpecialPage {
 		$this->css      = $request->getText( 'ea-css', $wgEmailPageCss );
 		$this->record   = $request->getText( 'ea-record', false );
 		$this->addcomments = $request->getText( 'ea-addcomments', false );
-		$this->db       = $db;
+		$this->dbr      = $dbr;
 
 		// Bail if no page title to send has been specified
 		if ( $this->title ) {
@@ -126,14 +128,14 @@ class SpecialEmailPage extends SpecialPage {
 		// Data
 		if ( defined( 'NS_FORM' ) ) {
 			$options = "";
-			$tbl = $db->tableName( 'page' );
-			$res = $db->select( $tbl, 'page_id', "page_namespace = " . NS_FORM );
-			while ( $row = $db->fetchRow( $res ) ) {
+			$tbl = $dbr->tableName( 'page' );
+			$res = $dbr->select( $tbl, 'page_id', "page_namespace = " . NS_FORM );
+			while ( $row = $dbr->fetchRow( $res ) ) {
 				$t = Title::newFromID( $row[0] )->getText();
 				$selected = $t == $this->record ? ' selected' : '';
 				$options .= "<option$selected>$t</option>";
 			}
-			$db->freeResult( $res );
+			$dbr->freeResult( $res );
 			if ( $options ) {
 				$out->addHTML( "<tr id=\"ea-data\"><th align=\"right\">" . wfMessage( 'ea-data' )->text() . ":</th><td>" );
 				$out->addHTML( "<select name=\"ea-record\"><option />$options</select>" );
@@ -184,12 +186,12 @@ class SpecialEmailPage extends SpecialPage {
 		}
 
 		// Get email addresses from users in selected group
-		$db = $this->db;
+		$dbr = $this->dbr;
 		if ( $this->group && ( $wgEmailPageAllowAllUsers || $this->group != 'user' ) ) {
-			$group = $db->addQuotes( $this->group );
+			$group = $dbr->addQuotes( $this->group );
 			$res = $this->group == 'user'
-				? $db->select( 'user', 'user_email', 'user_email != \'\'', __METHOD__ )
-				: $db->select( [ 'user', 'user_groups' ], 'user_email', "ug_user = user_id AND ug_group = $group", __METHOD__ );
+				? $dbr->select( 'user', 'user_email', 'user_email != \'\'', __METHOD__ )
+				: $dbr->select( [ 'user', 'user_groups' ], 'user_email', "ug_user = user_id AND ug_group = $group", __METHOD__ );
 			foreach ( $res as $row ) {
 				$this->addRecipient( $row->user_email );
 			}
@@ -323,7 +325,7 @@ class SpecialEmailPage extends SpecialPage {
 	public function replaceFields( $text, $email ) {
 
 		// Scan all records of this type for the first containing matching email address
-		$dbr  = $this->db;
+		$dbr  = $this->dbr;
 		$tbl  = $dbr->tableName( 'templatelinks' );
 		$type = $dbr->addQuotes( $this->record );
 		$res  = $dbr->select( $tbl, 'tl_from', "tl_namespace = 10 AND tl_title = $type", __METHOD__ );
